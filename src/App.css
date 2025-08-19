@@ -145,3 +145,12 @@ nav {
   background: #ff4d4f;
   color: #fff;
 }
+
+.fa-icon{
+  margin: 0 50px; 
+  margin-top: 35px;
+}
+
+.fa-icon:hover{
+  transform: scale(2.1)
+}
