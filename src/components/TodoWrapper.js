@@ -8,6 +8,7 @@ import { EditTodoForm } from './EditTodoForm';
 export const TodoWrapper = () => {
   const [persisted, setPersisted] = useLocalStorage('todos', []);
   const [state, dispatch] = useReducer(todoReducer, persisted);
+  const allCompleted = state.length > 0 && state.every(t => t.completed);
 
   // sync to localStorage
   useEffect(() => {
@@ -49,6 +50,29 @@ export const TodoWrapper = () => {
         >
           Completed
         </button>
+
+        <button
+          type="button"
+          className="filter-btn"
+          onClick={() => {
+            if (window.confirm('Tüm görevler silinsin mi?')) {
+              dispatch({ type: 'CLEAR' });
+            }
+          }}
+          title="Delete all tasks and clear localStorage"
+        >
+        Clear All
+        </button>
+        
+        <button 
+        className='filter-btn'
+        onClick={() => {
+          dispatch({ type: allCompleted ? 'INCOMPLETE_ALL' : 'COMPLETE_ALL' })
+        }}
+        >
+            {allCompleted ? 'Incomplete All' : 'Complete All'}
+        </button>
+
         </div>
 
       {visibleTodos.length === 0 && <p>No tasks yet 🚀</p>}

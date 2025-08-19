@@ -16,6 +16,10 @@ export const Todo = ({ task, onToggle, onDelete, onEdit }) => {
           <i className="fas fa-edit edit-icon" onClick={onEdit}></i>
           <i className="fas fa-trash delete-icon" onClick={onDelete}></i>
       </div>
+      <div className="actions">
+        <button className="filter-btn" type="button" onClick={onEdit}>Edit</button>
+        <button className="filter-btn" type="button" onClick={onDelete}>Delete</button>
+      </div>
     </div>
   );
 };

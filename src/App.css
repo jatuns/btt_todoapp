@@ -141,3 +141,7 @@ nav {
   margin-right: 13px;
 }
  
+.filter-btn.danger {
+  background: #ff4d4f;
+  color: #fff;
+}

@@ -21,6 +21,12 @@ export function todoReducer(state, action) {
       return state.map(t =>
         t.id === action.id ? { ...t, task: action.task, isEditing: false } : t
       );
+    case 'COMPLETE_ALL':
+      return state.map(t => ({ ...t, completed: true, isEditing: false }));
+    case 'INCOMPLETE_ALL':
+      return state.map(t => ({ ...t, completed: false, isEditing: false }));
+    case 'CLEAR':
+      return [];
     default:
       return state;
   }
